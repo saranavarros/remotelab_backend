@@ -14,11 +14,10 @@ module.exports = {
 
     async store(request, response){
         let newCode = new Code({
-             codigo: req.body.codigo,
-        });
-        newCode.save();
-        res.redirect('/');
-
+                    codigo: req.body.codigo,
+              });
+               newCode.save();
+               res.redirect('/');
         if(!newCode){
             alert("Você esqueceu de escrever seu código!");
             return response.status(400).json({error: "Missing text."})
@@ -26,7 +25,7 @@ module.exports = {
         }
 
         try{
-            await Code.create(newCodes);
+            await Code.create(newCode);
             return response.status(201).json({message: "Code added succesfully"});
 
         }catch(err){
