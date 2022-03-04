@@ -1,7 +1,7 @@
 
 
 body{
-    display: flex;
+    display: contents;
     background: #F2F3F5;
     padding: 0px 0px 0px 50px;
     font-family: "Inter";
@@ -490,7 +490,7 @@ body{
     transition: 0.5s;
 }
 .btn18:hover{
-    background-color: var(--main-green-darker);
+    background-color: rgb(7, 51, 7)
 }
 
 .modal18{
@@ -547,7 +547,7 @@ body{
 .inputs p{
     height: 10px;
     font-weight: bold;
-    margin-top: 4px;
+    margin-top: -20px;
 }
 
 .name{
@@ -563,10 +563,10 @@ body{
 }
 .botao button{
     background-color: var(--main-green);
-    padding: 20px 90px;
+    padding: 2px 40px;
     color: #fff;
     border-radius: 5px;
-    margin-left: 20vh;
+    margin-left: 30vh;
     cursor: pointer;
     font-size: 1.2em;
 

@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="/css/led.css">
   <link rel="stylesheet" href="/css/toggle.css">
   <link rel=stylesheet href="/css/program-responsivy.css">
+
+ 
+
+  <link rel="stylesheet" href="/css/user-card.css">
+  <link rel="stylesheet" href="/css/lab-card.css">
+  <link rel="stylesheet" href="/css/table-line.css">
+  <link rel="stylesheet" href="/css/resp-user-card.css">
+
+  <%- include('../views/css-basic')%>
+
   <script src="/js/codemirror.js"></script>
   <script src="/js/matchbrackets.js"></script>
   <script src="/js/vhdl.js"></script>
@@ -36,7 +46,7 @@
       border-radius: 10px;
     }
   </style>
-  <title>VHDL </title>
+  <title>VHDL</title>
 
 
 
@@ -46,7 +56,10 @@
 
 <body>
 
+    
   <div class="all">
+    <div class="all" >
+        <%- include('../views/navbar', {logo: "/img/logo-lab-fpga.svg" }) %>
   <div class="section">
     <!--LED 01-->
     <div class = "teste">
@@ -605,13 +618,14 @@
 
   <div class="prog">
   <article>
-    <h2>Modo vhdl</h2>
+
+    <h2>Codificação VHDL</h2>
     <div>
         <form class="container" method="post" action="/">
             <div class="form-group">
                 <textarea class="codemirror-textarea" id="code" name="codigo"></textarea>
             </div>
-            <button type="submit" onclick="alertar()" class="play"><img src="./img/run.svg" alt="Icone start"></button>
+            <button type="submit"  onclick="alertar()" class="play"><img src="./img/run.svg" alt="Icone start"></button>
             <script>
                 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
                     lineNumbers: true,
@@ -621,17 +635,6 @@
                     }
                 });
                 var codigo = editor.getValue();
-
-                function alertar(){
-
-      
-                    setTimeout(function() {
-                        document.body.className = 'loading'; 
-                        fadeContainer.style.display = "none";
-                        }, 3000);
-                        alert("Codigo enviado com sucesso!");
-                }
-                
             </script>
         </form>
 
@@ -639,8 +642,24 @@
 </div>
 </div>
 
+<script>
+
+    function alertar(){
+    alert("Codigo enviado com sucesso!");
+    function carregar() {
+        document.body.className = 'loading'; 
+        fadeContainer.style.display = "none";
+        }
+
+        let telacarregar = setTimeout(carregar(), 1000);
+        
+        
+    }
+    alert("Pode abrir a camera!");
+</script>
+
 <div class="camera">
-    <div onclick="abrir18()" class="btn18">
+    <div onclick="abrir18()" class="btn18" >
         Abrir camera
         </div>
     <div id="mymodal18" class="popup18">
@@ -660,6 +679,9 @@
 
 <script src="/js/modal.js"></script>
 </div>
+
+<script src="/js/instance-axios.js"></script>
+<script src="/js/navbar.js"></script> 
 </body>
 
 </html>

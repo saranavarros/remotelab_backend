@@ -10,19 +10,27 @@ const CodeController = require("./controllers/CodeController");
 //res.render("program")
 //});
 
-routes.get("/", (request, response) => response.render("program"));
+routes.get("/program", (request, response) => response.render("program"));
 
 
 
-routes.get("/codes", CodeController.index); //pagina
 routes.post("/", function (req, res) {
     let newCode = new Code({
         codigo: req.body.codigo,
     });
-    
-    newCode.save();
-    res.redirect('/');
+    if(!newCode){
+        alert("Você esqueceu de escrever seu código!");
+        return res.status(400).json({error: "Missing text."})
+        
+    }
+    try{
+        newCode.save();
+        res.redirect('/program');
+            
 
+    }catch(err){
+        res.status(400).json({error: err.message });
+    }
 
 }) //salvar no db codigo
 
